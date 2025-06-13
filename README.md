@@ -19,6 +19,7 @@ This project shows how to log events to a Redis stream via a FastAPI backend and
 your_project/
 ├── app/
 │ └── main.py # FastAPI producer (event logger)
+
 ├── consumer.py # Event consumer script
 ├── requirements.txt # Python dependencies
 ├── README.md # Project documentation
