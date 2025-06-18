@@ -36,7 +36,7 @@ async def logevent(req : Request):
     event_data = await req.json()
     try:
         print(event_data)
-        r.xadd(STREAM_KEY , event_data)
+        r.xadd(STREAM_KEY , event_data, maxlen=1000)
         print("Event appended to stream")
         return JSONResponse(content={'message' : 'Event Logged'})
     except Exception as e:

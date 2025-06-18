@@ -1,6 +1,6 @@
 import redis
-import os
 import sys
+from fileLogger import FileLogger
 
 import redis.exceptions
 
@@ -46,5 +46,6 @@ while True:
 
     for id , msg in event_message:
         print(f"Processing events with {id} and data : {msg}")
+        FileLogger(f'{msg['event_type']} logged at {msg['timestamp']}')
         r.xack(STREAM_KEY , GROUP_NAME, id)
         lastid = id
